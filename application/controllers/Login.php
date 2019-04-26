@@ -19,17 +19,25 @@ class Login extends CI_Controller
 	{
 		$matricula = $this->input->post('matricula');
 		$senha = $this->input->post('senha');
+		$variaveis = array();
 
-		$usuario = $this->m_usuario->verifica_usuario($matricula, $senha);
+		$usuario = $this->m_usuario->verifica_usuario($matricula);
 
-		if ($usuario > 0) {
-			$this->session->set_userdata('logged', TRUE);
-			redirect(base_url());
+		if ($usuario->num_rows() > 0){
+
+			$hash = $usuario->row()->senha;
+
+			if (password_verify($senha, $hash)){
+				$this->session->set_userdata('logged', TRUE);
+				redirect(base_url());
+			} else {
+				$variaveis['erro'] = "Matricula / senha inválidos!";
+			}
+
 		} else {
-			$variaveis['erro'] = "Matricula/senha inválidos!";
-			$this->load->view('login', $variaveis);
+			$variaveis['erro'] = "Matricula inválida!";
 		}
-		
+		$this->load->view('login', $variaveis);
 	}
 
 	public function sair()
