@@ -50,7 +50,7 @@ class Usuario extends MY_Controller
 
 				"nome" => $this->input->post('nome'),
 				"matricula" => $this->input->post('matricula'),
-				"senha" => $this->input->post('senha')
+				"senha" => password_hash($this->input->post('senha'), PASSWORD_DEFAULT)
 			);
 
 			if ($this->m_usuario->persiste($dados, $id)) {

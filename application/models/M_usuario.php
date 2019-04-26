@@ -23,12 +23,12 @@ class M_usuario extends CI_Model
 		}
 	}
 	
-	public function verifica_usuario($matricula = null, $senha = null) 
+	public function verifica_usuario($matricula = null) 
 	{
-		$result = 0;
+		$result = null;
 
-		if($matricula && $senha) {
-			$result = $this->db->where(array('matricula' => $matricula, 'senha'=> $senha))->get('usuarios')->num_rows();
+		if($matricula) {
+			$result = $this->db->where(array('matricula' => $matricula))->get('usuarios');
 		}
 
 		return $result; 

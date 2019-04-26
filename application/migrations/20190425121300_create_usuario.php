@@ -22,7 +22,7 @@ class Migration_Create_Usuario extends CI_Migration
 			),
 			'senha' => array(
 				'type' => 'VARCHAR',
-				'constraint' => 30
+				'constraint' => 150
 			),
 			'created' => array(
 				'type' => 'TIMESTAMP'
