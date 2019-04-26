@@ -8,12 +8,14 @@ class Usuario extends MY_Controller
 	
 	public function index()
 	{
-		$this->load->view('usuario');
+		$data['content'] = $this->load->view('usuario_home', '', TRUE);
+		$this->load->view('template', $data);
 	}
 
 	public function cadastro()
 	{
-		$this->load->view('cadastro_usuario');
+		$data['content'] = $this->load->view('usuario_cadastro', '', TRUE);
+		$this->load->view('template', $data);
 	}
 
 	public function salvar()
@@ -41,7 +43,8 @@ class Usuario extends MY_Controller
 		$this->form_validation->set_rules($regras);
 
 		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('cadastro_usuario');		
+			$data['content'] = $this->load->view('usuario_cadastro', '', TRUE);
+			$this->load->view('template', $data);		
 		} else {
 			
 			$id = $this->input->post('id');
@@ -55,7 +58,7 @@ class Usuario extends MY_Controller
 
 			if ($this->m_usuario->persiste($dados, $id)) {
 				$variaveis['mensagem'] = "Usuário cadastrado com sucesso!";
-				$this->load->view('cadastro_usuario_sucesso', $variaveis);
+				$this->load->view('usuario_cadastro_sucesso', $variaveis);
 			} else {
 				$variaveis['mensagem'] = "Ocorreu um erro. Por favor, tente novamente";
 				$this->load->view('errors/html/v_erro', $variaveis);
