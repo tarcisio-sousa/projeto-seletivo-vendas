@@ -14,6 +14,10 @@ class Migration_Create_Produtos extends CI_Migration
 			),
 			'descricao' => array(
 				'type' => 'VARCHAR',
+				'constraint' => 45
+			),
+			'detalhamento' => array(
+				'type' => 'VARCHAR',
 				'constraint' => 150
 			),
 			'preco_vista' => array(

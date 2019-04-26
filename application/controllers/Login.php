@@ -29,6 +29,7 @@ class Login extends CI_Controller
 
 			if (password_verify($senha, $hash)){
 				$this->session->set_userdata('logged', TRUE);
+				$this->session->set_userdata('usuario_id', $usuario->row()->id);
 				redirect(base_url());
 			} else {
 				$variaveis['erro'] = "Matricula / senha inválidos!";
@@ -43,6 +44,7 @@ class Login extends CI_Controller
 	public function sair()
 	{
 		$this->session->unset_userdata('logged');
+		$this->session->unset_userdata('usuario_id');
 		redirect(base_url());
 	}
 }
