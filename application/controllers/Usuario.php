@@ -8,12 +8,38 @@ class Usuario extends MY_Controller
 	
 	public function index()
 	{
-		$this->load->view('usuario');
+		$variaveis['usuarios'] = $this->m_usuario->get();
+		$data['content'] = $this->load->view('usuario_home', $variaveis, TRUE);
+		$this->load->view('template', $data);
 	}
 
 	public function cadastro()
 	{
-		$this->load->view('cadastro_usuario');
+		$data['content'] = $this->load->view('usuario_cadastro', '', TRUE);
+		$this->load->view('template', $data);
+	}
+
+	public function edita($id)
+	{
+		if ($id) {
+			$usuario = $this->m_usuario->get($id);
+
+			if ($usuario->num_rows() > 0) {
+				$variaveis['id'] = $usuario->row()->id;
+				$variaveis['nome'] = $usuario->row()->nome;
+				$variaveis['matricula'] = $usuario->row()->matricula;
+				$variaveis['status'] = $usuario->row()->status;
+
+				$data['content'] = $this->load->view('usuario_cadastro', $variaveis, TRUE);
+			} else {
+				$variaveis['mensagem'] = "Registro não encontrado.";
+				$this->load->view('errors/html/v_erro', $variaveis);
+			}
+
+		} else {
+			$data['content'] = $this->load->view('usuario_cadastro', '', TRUE);
+		}
+		$this->load->view('template', $data);
 	}
 
 	public function salvar()
@@ -41,7 +67,8 @@ class Usuario extends MY_Controller
 		$this->form_validation->set_rules($regras);
 
 		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('cadastro_usuario');		
+			$data['content'] = $this->load->view('usuario_cadastro', '', TRUE);
+			$this->load->view('template', $data);
 		} else {
 			
 			$id = $this->input->post('id');
@@ -55,7 +82,9 @@ class Usuario extends MY_Controller
 
 			if ($this->m_usuario->persiste($dados, $id)) {
 				$variaveis['mensagem'] = "Usuário cadastrado com sucesso!";
-				$this->load->view('cadastro_usuario_sucesso', $variaveis);
+
+				$data['content'] = $this->load->view('usuario_cadastro_sucesso', $variaveis, TRUE);
+				$this->load->view('template', $data);
 			} else {
 				$variaveis['mensagem'] = "Ocorreu um erro. Por favor, tente novamente";
 				$this->load->view('errors/html/v_erro', $variaveis);
@@ -63,6 +92,14 @@ class Usuario extends MY_Controller
 
 		}
 
+	}
+
+	public function remove($id = null) {
+		if ($this->m_usuario->delete($id)) {
+			redirect(base_url('index.php/usuario'));
+			// $variaveis['mensagem'] = "Registro excluído com sucesso!";
+			// $this->load->view('v_sucesso', $variaveis);
+		}
 	}
 	/**
 	 * public function superuser()

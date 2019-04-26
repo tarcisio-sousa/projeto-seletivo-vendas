@@ -5,7 +5,8 @@ class Home extends MY_Controller
 	
 	public function index()
 	{
-		$this->load->view('home');
+		$data['content'] = $this->load->view('home', '', TRUE);
+		$this->load->view('template', $data);
 	}
 }
 

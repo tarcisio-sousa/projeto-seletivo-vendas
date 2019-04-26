@@ -33,5 +33,20 @@ class M_usuario extends CI_Model
 
 		return $result; 
 	}
+
+	public function get($id = null)
+	{
+		if ($id) {
+			$this->db->where('id', $id);
+		}
+		return $this->db->get('usuarios');
+	}
+
+	public function delete($id = null)
+	{
+		if ($id) {
+			return $this->db->where('id', $id)->delete('usuarios');
+		}
+	}
 }
 ?>
