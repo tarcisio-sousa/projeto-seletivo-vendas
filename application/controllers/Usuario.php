@@ -3,7 +3,7 @@
 /**
  * 
  */
-class Usuario extends CI_Controller
+class Usuario extends MY_Controller
 {
 	
 	public function index()

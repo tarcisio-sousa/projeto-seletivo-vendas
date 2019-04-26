@@ -6,7 +6,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 		<meta name="generator" content="Jekyll v3.8.5">
-		<title>Login - Projeto Vendas</title>
+		<title>Bem vindo! - Projeto Vendas</title>
 
 		<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
 
@@ -31,27 +31,16 @@
 		}
 		}
 		</style>
-		<!-- Custom styles for this template -->
-		<link href="signin.css" rel="stylesheet">
-		<?= link_tag('assets/signin.css') ?>
 	</head>
 	<body class="text-center">
-		<div class="form-signin">
-			<?= form_open('login/entrar') ?>
-			<h1 class="h3 mb-3 font-weight-normal">Projeto Vendas</h1>
-			<label for="inputEmail" class="sr-only">Matrícula</label>
-			<input type="text" name="matricula" id="inputMatricula" class="form-control" placeholder="Matrícula" required autofocus>
-			<label for="inputPassword" class="sr-only">Senha</label>
-			<input type="password" name="senha" id="inputPassword" class="form-control" placeholder="Senha" required>
-			<div class="checkbox mb-3 text-left">
-				<label>
-					<input type="checkbox" value="remember-me"> Lembrar senha
-				</label>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="text-center">
+						Bem vindo!!!
+					</h1>
+				</div>
 			</div>
-			<div class="error"><?php echo isset($erro) ? $erro : '' ; ?></div>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-			<p class="mt-5 mb-3 text-muted">&copy; 2019</p>
-			<?= form_close()?>
 		</div>
 	</body>
 </html>
