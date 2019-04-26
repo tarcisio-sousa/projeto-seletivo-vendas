@@ -24,7 +24,7 @@
 					<?= anchor('usuario', 'Usuários', array('class' => 'nav-link')); ?>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Produtos</a>
+					<?= anchor('produto', 'Produtos', array('class' => 'nav-link')); ?>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Clientes</a>

@@ -1,8 +1,5 @@
 <?php
 
-/**
- * 
- */
 class Usuario extends MY_Controller
 {
 	
@@ -47,21 +44,9 @@ class Usuario extends MY_Controller
 		$this->load->library('form_validation');
 
 		$regras = array(
-			array(
-				'field' => 'nome',
-				'label' => 'Nome',
-				'rules' => 'required'
-			),
-			array(
-				'field' => 'matricula',
-				'label' => 'Matrícula',
-				'rules' => 'required'
-			),
-			array(
-				'field' => 'senha',
-				'label' => 'Senha',
-				'rules' => 'required'
-			)
+			array('field' => 'nome', 'label' => 'Nome', 'rules' => 'required'),
+			array('field' => 'matricula', 'label' => 'Matrícula', 'rules' => 'required'),
+			array('field' => 'senha', 'label' => 'Senha', 'rules' => 'required')
 		);
 
 		$this->form_validation->set_rules($regras);
@@ -89,9 +74,7 @@ class Usuario extends MY_Controller
 				$variaveis['mensagem'] = "Ocorreu um erro. Por favor, tente novamente";
 				$this->load->view('errors/html/v_erro', $variaveis);
 			}
-
 		}
-
 	}
 
 	public function remove($id = null) {
