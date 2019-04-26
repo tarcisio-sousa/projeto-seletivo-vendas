@@ -79,7 +79,7 @@ class Usuario extends MY_Controller
 
 	public function remove($id = null) {
 		if ($this->m_usuario->delete($id)) {
-			redirect(base_url('index.php/usuario'));
+			redirect(base_url('usuario'));
 			// $variaveis['mensagem'] = "Registro excluído com sucesso!";
 			// $this->load->view('v_sucesso', $variaveis);
 		}

@@ -66,7 +66,6 @@ class Produto extends MY_Controller
 			$id = $this->input->post('id');
 			
 			$dados = array(
-
 				"descricao" => $this->input->post('descricao'),
 				"detalhamento" => $this->input->post('detalhamento'),
 				"preco_vista" => $this->input->post('preco_vista'),
@@ -87,9 +86,10 @@ class Produto extends MY_Controller
 		}
 	}
 
-	public function remove($id = null) {
+	public function remove($id = null) 
+	{
 		if ($this->m_produto->delete($id)) {
-			redirect(base_url('index.php/produto'));
+			redirect(base_url('produto'));
 		}
 	}
 }

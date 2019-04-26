@@ -10,7 +10,7 @@ class MY_Controller extends CI_Controller
 		$logged = $this->session->userdata("logged");
 
 		if ($logged != TRUE) {
-			redirect(base_url('index.php/login'));
+			redirect(base_url('login'));
 		}
 	}
 }
