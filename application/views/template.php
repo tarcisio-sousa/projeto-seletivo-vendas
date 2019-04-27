@@ -11,10 +11,16 @@
 		<!-- Bootstrap core CSS -->
 		<?= link_tag('assets/bootstrap/css/bootstrap.min.css') ?>
 
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="<?= base_url(); ?>assets/bootstrap/js/jquery.min.js"></script>
+
+		<script src="<?= base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
+
 	</head>
 	<body class="text-center">
 		<div class="container">
 			<?= $content ?>
 		</div>
 	</body>
+	
 </html>

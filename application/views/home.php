@@ -30,7 +30,7 @@
 					<?= anchor('cliente', 'Clientes', array('class' => 'nav-link')); ?>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Venda</a>
+					<?= anchor('venda', 'Vendas', array('class' => 'nav-link')); ?>
 				</li>
 				<li class="nav-item">
 					<?= anchor('login/sair', 'Logout', array('class' => 'nav-link')); ?>

@@ -25,47 +25,42 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-3">
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-6">
 			<!-- <form role="form"> -->
 			<?= form_open('usuario/salvar') ?>
-				<div class="form-group row text-left">
+				<div class="form-group mb-2 text-left">
 					 
-					<label for="inputNome" class="col-sm-12 col-form-label">
-						Nome
-					</label>
-					<div class="col-sm-6">
-						<input type="text" name="nome" class="form-control" id="nome" value="<?= set_value('nome') ? : (isset($nome) ? $nome : '') ?>" autofocus='true' />
-					</div>
-					<div class="col-sm-6 alert" role="alert"><?php echo form_error('nome') ?  : ''; ?></div>
+					<label for="nome"> Nome </label>
+					<input type="text" name="nome" class="form-control" id="nome" value="<?= set_value('nome') ? : (isset($nome) ? $nome : '') ?>" autofocus='true' />
+					
+					<div class="col-sm-12 alert" role="alert"><?php echo form_error('nome') ?  : ''; ?></div>
 				</div>
-				<div class="form-group row text-left">
-					 
-					<label for="inputMatricula" class="col-sm-12 col-form-label">
-						Matrícula
-					</label>
+				<div class="row">
 					<div class="col-sm-6">
-						<input type="text" name="matricula" class="form-control" id="matricula" value="<?= set_value('matricula') ? : (isset($matricula) ? $matricula : '') ?>" />
+						<div class="form-group mb-2 text-left">
+							 
+							<label for="matricula"> Matrícula </label>
+							<input type="text" name="matricula" class="form-control" id="matricula" value="<?= set_value('matricula') ? : (isset($matricula) ? $matricula : '') ?>" />
+							
+							<div class="col-sm-12 alert" role="alert"><?php echo form_error('matricula') ?  : ''; ?></div>
+						</div>
 					</div>
-					<div class="col-sm-6 alert" role="alert"><?php echo form_error('matricula') ?  : ''; ?></div>
-				</div>
-				<div class="form-group row text-left">
-					 
-					<label for="inputPassword" class="col-sm-12 col-form-label">
-						Senha
-					</label>
 					<div class="col-sm-6">
-						<input type="password" name="senha" class="form-control" id="inputPassword" value="<?= set_value('senha') ? : (isset($senha) ? $senha : '') ?>" />
+						<div class="form-group mb-2 text-left">
+							 
+							<label for="password"> Senha </label>
+							<input type="password" name="senha" class="form-control" id="inputPassword" value="<?= set_value('senha') ? : (isset($senha) ? $senha : '') ?>" />
+							
+							<div class="col-sm-12 alert" role="alert"><?php echo form_error('senha') ?  : ''; ?></div>
+						</div>
 					</div>
-					<div class="col-sm-6 alert" role="alert"><?php echo form_error('senha') ?  : ''; ?></div>
 				</div>
 				<div class="row">
 					<div class="col-sm-12"><input type='hidden' name="id" value="<?= set_value('id') ? : (isset($id) ? $id : ''); ?>"></div>
-					<div class="col-sm-6 text-right">
-						<button type="submit" class="btn btn-primary">
-							Submit
-						</button>
+					<div class="col-sm-12 text-right">
+						<button type="submit" class="btn btn-primary"> Submit </button>
 					</div>
 				</div>
 			<!-- </form> -->
