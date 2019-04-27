@@ -31,6 +31,11 @@ class M_cliente extends CI_Model
 		return $this->db->get('clientes');
 	}
 
+	public function get_cliente($id = null)
+	{
+		return $this->db->where('id', $id)->get('clientes');
+	}
+
 	public function delete($id = null)
 	{
 		if ($id) {

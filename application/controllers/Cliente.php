@@ -50,22 +50,24 @@ class Cliente extends MY_Controller
 	{
 		$this->load->library('form_validation');
 
+		$variaveis['usuario_id'] = $this->session->userdata('usuario_id');
+
 		$regras = array(
 			array('field' => 'nome', 'label' => 'Nome', 'rules' => 'required'),
 			array('field' => 'cpf', 'label' => 'CPF', 'rules' => 'required'),
 			array('field' => 'rg', 'label' => 'RG', 'rules' => 'required'),
-			array('field' => 'endereco', 'label' => 'Endereço'),
-			array('field' => 'numero', 'label' => 'Número'),
-			array('field' => 'cidade', 'label' => 'Cidade'),
-			array('field' => 'estado', 'label' => 'Estado'),
-			array('field' => 'renda', 'label' => 'Renda'),
+			array('field' => 'endereco', 'label' => 'Endereço', 'rules' => 'required'),
+			array('field' => 'numero', 'label' => 'Número', 'rules' => 'required'),
+			array('field' => 'cidade', 'label' => 'Cidade', 'rules' => 'required'),
+			array('field' => 'estado', 'label' => 'Estado', 'rules' => 'required'),
+			array('field' => 'renda', 'label' => 'Renda', 'rules' => 'required'),
 			array('field' => 'usuario_id', 'label' => 'Usuário', 'rules' => 'required')
 		);
 
 		$this->form_validation->set_rules($regras);
 
 		if ($this->form_validation->run() == FALSE) {
-			$data['content'] = $this->load->view('cliente_cadastro', '', TRUE);
+			$data['content'] = $this->load->view('cliente_cadastro', $variaveis, TRUE);
 			$this->load->view('template', $data);
 		} else {
 			
@@ -99,6 +101,15 @@ class Cliente extends MY_Controller
 	{
 		if ($this->m_cliente->delete($id)) {
 			redirect(base_url('cliente'));
+		}
+	}
+
+	public function get($id = null) {
+		$cliente = $this->m_cliente->get_cliente($id);
+		if($cliente->num_rows()){
+			echo json_encode($cliente->row());
+		} else {
+			echo '{"id": "0"}';
 		}
 	}
 }

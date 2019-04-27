@@ -47,19 +47,21 @@ class Produto extends MY_Controller
 	{
 		$this->load->library('form_validation');
 
+		$variaveis['usuario_id'] = $this->session->userdata('usuario_id');
+
 		$regras = array(
 			array('field' => 'descricao', 'label' => 'Descrição', 'rules' => 'required'),
 			array('field' => 'detalhamento', 'label' => 'Detalhamento', 'rules' => 'required'),
-			array('field' => 'preco_vista', 'label' => 'Preço à vista'),
-			array('field' => 'preco_prazo', 'label' => 'Preço à prazo'),
-			array('field' => 'codigo_barras', 'label' => 'Código de barras'),
+			array('field' => 'preco_vista', 'label' => 'Preço à vista', 'rules' => 'required'),
+			array('field' => 'preco_prazo', 'label' => 'Preço à prazo', 'rules' => 'required'),
+			array('field' => 'codigo_barras', 'label' => 'Código de barras', 'rules' => 'required'),
 			array('field' => 'usuario_id', 'label' => 'Usuário', 'rules' => 'required')
 		);
 
 		$this->form_validation->set_rules($regras);
 
 		if ($this->form_validation->run() == FALSE) {
-			$data['content'] = $this->load->view('produto_cadastro', '', TRUE);
+			$data['content'] = $this->load->view('produto_cadastro', $variaveis, TRUE);
 			$this->load->view('template', $data);
 		} else {
 			
@@ -90,6 +92,15 @@ class Produto extends MY_Controller
 	{
 		if ($this->m_produto->delete($id)) {
 			redirect(base_url('produto'));
+		}
+	}
+
+	public function get($id = null) {
+		$produto = $this->m_produto->get_produto($id);
+		if($produto->num_rows()){
+			echo json_encode($produto->row());
+		} else {
+			echo '{"id": "0"}';
 		}
 	}
 }
