@@ -36,8 +36,8 @@
 					<tr>
 						<td> <?= $produto->id ?> </td>
 						<td class="text-left"> <?= $produto->descricao ?> </td>
-						<td class="text-left"> <?= $produto->preco_vista ?> </td>
-						<td class="text-left"> <?= $produto->preco_prazo ?> </td>
+						<td class="text-right"> <?= $produto->preco_vista ?> </td>
+						<td class="text-right"> <?= $produto->preco_prazo ?> </td>
 						<td> <?= $produto->status ?> </td>
 						<td class="text-right"> 
 							<?= anchor("produto/edita/$produto->id", 'Editar', array('class' => 'btn btn-primary btn-sm')); ?> 

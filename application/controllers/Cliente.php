@@ -112,5 +112,14 @@ class Cliente extends MY_Controller
 			echo '{"id": "0"}';
 		}
 	}
+
+	public function select($nome = null) {
+		$cliente = $this->m_cliente->select_cliente($nome);
+		if($cliente->num_rows()){
+			echo json_encode($cliente->result());
+		} else {
+			echo '{"id": "0"}';
+		}
+	}
 }
 ?>

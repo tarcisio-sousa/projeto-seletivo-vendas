@@ -53,10 +53,12 @@ class Venda extends MY_Controller
 
 		if ($this->form_validation->run() ==  FALSE) {
 			// echo "ERROR!";
-			$dados["validate"] = "Preencha todos os campos corretamente.";
+			$dados["validate"] = "** Preencha todos os campos corretamente. **";
+			$dados["error"] = TRUE;
 		} else {
 			$result = $this->m_venda->persiste($dados, $id);
 			$dados["validate"] = "Venda realizada com sucesso!";
+			$dados["error"] = FALSE;
 			// echo "OK!";
 		}
 		echo json_encode($dados);
