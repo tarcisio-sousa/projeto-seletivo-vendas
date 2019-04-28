@@ -9,22 +9,19 @@ class M_venda extends CI_Model
 	{
 		if ($dados) {
 			if ($id) {
-				// $this->db->where('id', $id);
-				// if ($this->db->update("vendas", $dados)) {
-				// 	return true;
-				// } else {
-				// 	return false;
-				// }
+				$this->db->where('id', $id);
+				if ($this->db->update("vendas", $dados)) {
+					return true;
+				} else {
+					return false;
+				}
 				echo "pass";
 			} else {
-				// $dados["cliente_id"] = 1;
-				echo json_encode($dados);
-				$this->db->insert("vendas", $dados);
-				// if ($this->db->insert("vendas", $dados)) {
-				// 	return true;
-				// } else {
-				// 	return false;
-				// }
+				if ($this->db->insert("vendas", $dados)) {
+					return true;
+				} else {
+					return false;
+				}
 			}
 		}
 	}

@@ -24,7 +24,8 @@
 				<thead>
 					<tr>
 						<th> # </th>
-						<th> Id </th>
+						<th> Forma de Pagamento </th>
+						<th> Valor Total </th>
 						<th>  </th>
 					</tr>
 				</thead>
@@ -32,8 +33,8 @@
 					<?php foreach($vendas->result() as $venda): ?>
 					<tr>
 						<td> <?= $venda->id ?> </td>
-						<td class="text-left"> <?= $venda->id ?> </td>
-						<td> <?= $venda->status ?> </td>
+						<td class="text-center"> <?= $venda->forma_pagamento ?> </td>
+						<td class="text-right"> <?= $venda->valor_total ?> </td>
 						<td class="text-right"> 
 							<?= anchor("venda/edita/$venda->id", 'Editar', array('class' => 'btn btn-primary btn-sm')); ?> 
 							<?= anchor("venda/remove/$venda->id", 'Excluir', array('class' => 'btn btn-danger btn-sm')); ?></td>
