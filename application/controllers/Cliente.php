@@ -116,10 +116,7 @@ class Cliente extends MY_Controller
 	public function select($nome = null) {
 		$cliente = $this->m_cliente->select_cliente($nome);
 		if($cliente->num_rows()){
-			// foreach ($cliente->result() as $value) {
-			// }
 			echo json_encode($cliente->result());
-			// echo json_encode($cliente->row_array());
 		} else {
 			echo '{"id": "0"}';
 		}

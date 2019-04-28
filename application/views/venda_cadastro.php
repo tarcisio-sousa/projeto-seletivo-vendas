@@ -52,7 +52,7 @@
 								<div class="input-group">
 									<input type="text" name="produto" id="produto" class="form-control" />
 									<div class="input-group-append">
-										<a class="btn btn-outline-secondary" href="#">
+										<a class="btn btn-outline-secondary modalProduto" href="#" data-toggle="modal" data-target="#produtoModal">
 										  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-0" role="img" viewBox="0 0 24 24" focusable="false"><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
 										</a>
 									</div>
@@ -121,48 +121,81 @@
 	</div>
 </div>
 
-<!-- Modal -->
+
 <div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Selecionar Cliente</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-search mt-3 ml-3 mb-0 mr-3">
-    	<div class="input-group">
-			<input type="text" name="select_cliente" id="select_cliente" class="form-control">
-			<div class="input-group-append">
-				<button type="button" id="button_select_cliente" class="btn btn-primary"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-0" role="img" viewBox="0 0 24 24" focusable="false"><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg> </button>
+	<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalCenterTitle">Selecionar Cliente</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
-    	</div>
-        
-      </div>
-      <div class="modal-body">
-        
-        <div id="result_select_cliente">
-        	<table class="table table-sm" style="display: none;">
-        		<thead>
-		    		<tr>
-		    			<th>Nome</th>
-		    			<th>CPF</th>
-		    			<th></th>
-		    		</tr>
-        		</thead>
-        		<tbody>
-        		</tbody>
-        	</table>
-        </div>
-      </div>
-        <!-- 
-      <div class="modal-footer">
-        	<button type="button" class="btn btn-primary btn-sm">Save changes</button>
-        	 -->
-      </div>
-    </div>
-  </div>
+			<div class="modal-search mt-3 ml-3 mb-0 mr-3">
+				<div class="input-group">
+					<input type="text" name="select_cliente" id="select_cliente" class="form-control">
+					<div class="input-group-append">
+						<button type="button" id="button_select_cliente" class="btn btn-primary"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-0" role="img" viewBox="0 0 24 24" focusable="false"><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg> </button>
+					</div>
+				</div>
+
+			</div>
+			<div class="modal-body">
+
+				<div id="result_select_cliente">
+					<table class="table table-sm" style="display: none;">
+						<thead>
+							<tr>
+								<th>Nome</th>
+								<th>CPF</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="produtoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalCenterTitle">Selecionar Produto</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-search mt-3 ml-3 mb-0 mr-3">
+				<div class="input-group">
+					<input type="text" name="select_produto" id="select_produto" class="form-control">
+					<div class="input-group-append">
+						<button type="button" id="button_select_produto" class="btn btn-primary"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-0" role="img" viewBox="0 0 24 24" focusable="false"><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg> </button>
+					</div>
+				</div>
+
+			</div>
+			<div class="modal-body">
+
+				<div id="result_select_produto">
+					<table class="table table-sm" style="display: none;">
+						<thead>
+							<tr>
+								<th>Descrição</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <script>
@@ -171,11 +204,11 @@ $(document).ready(function(){
 	$("#button_select_cliente").click(function(){
 
 		$.getJSON("<?= base_url(); ?>cliente/select/" + $("#select_cliente").val(), function(result){
-			
+
 			$("#result_select_cliente table tbody").text("");
 			$.each(result, function(i, field){
 				if(!result["id"]){
-			    	$("#result_select_cliente table tbody").append("<tr><td>" + field["nome"] + "</td><td>" + field["cpf"] + "</td><td class='text-right'><a href='#' class='btn btn-secondary btn-sm select_cliente_button'>"+ field["id"] +"</a></td></tr>");
+			    	$("#result_select_cliente table tbody").append("<tr><td class='text-left'>" + field["nome"] + "</td><td>" + field["cpf"] + "</td><td class='text-right'><a href='#' class='btn btn-secondary btn-sm select_cliente_button' data-id='"+ field["id"] +"'>selecione</a></td></tr>");
 			    	$("#result_select_cliente table").show();
 				} else {
 			    	$("#result_select_cliente table").hide();
@@ -184,7 +217,7 @@ $(document).ready(function(){
 
 			$(".select_cliente_button").click(function(){
 
-				$("#cliente").val($(this).text()).focus();
+				$("#cliente").val($(this).data("id")).focus();
 
 				$("#clienteModal").modal("hide");
 			});
@@ -201,6 +234,31 @@ $(document).ready(function(){
 				$("#cliente").val("");
 				$("#nome_cliente").val("");
 			}
+		});
+	});
+
+
+
+	$("#button_select_produto").click(function(){
+
+		$.getJSON("<?= base_url(); ?>produto/select/" + $("#select_produto").val(), function(result){
+
+			$("#result_select_produto table tbody").text("");
+			$.each(result, function(i, field){
+				if(!result["id"]){
+			    	$("#result_select_produto table tbody").append("<tr><td class='text-left'>" + field["descricao"] + "</td><td class='text-right'><a href='#' class='btn btn-secondary btn-sm select_produto_button' data-id='"+ field["id"] +"'>selecione</a></td></tr>");
+			    	$("#result_select_produto table").show();
+				} else {
+			    	$("#result_select_produto table").hide();
+				}
+		    });
+
+			$(".select_produto_button").click(function(){
+
+				$("#produto").val($(this).data("id")).focus();
+
+				$("#produtoModal").modal("hide");
+			});
 		});
 	});
 

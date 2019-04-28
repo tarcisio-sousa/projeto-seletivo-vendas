@@ -36,6 +36,11 @@ class M_produto extends CI_Model
 		return $this->db->where('id', $id)->get('produtos');
 	}
 
+	public function select_produto($descricao = null)
+	{
+		return $this->db->like('descricao', $descricao)->get('produtos');
+	}
+
 	public function delete($id = null)
 	{
 		if ($id) {

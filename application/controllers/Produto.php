@@ -103,5 +103,14 @@ class Produto extends MY_Controller
 			echo '{"id": "0"}';
 		}
 	}
+
+	public function select($descricao = null) {
+		$produto = $this->m_produto->select_produto($descricao);
+		if($produto->num_rows()){
+			echo json_encode($produto->result());
+		} else {
+			echo '{"id": "0"}';
+		}
+	}
 }
 ?>
