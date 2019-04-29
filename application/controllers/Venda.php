@@ -10,6 +10,41 @@ class Venda extends MY_Controller
 		$this->load->view('template', $data);
 	}
 
+	public function edita($id)
+	{
+		$variaveis['usuario_id'] = $this->session->userdata('usuario_id');
+
+		$variaveis['clientes'] = $this->m_cliente->get();
+		$variaveis['produtos'] = $this->m_produto->get();
+		$variaveis['formas_pagamento'] = $this->m_venda->FORMA_PAGAMENTO;
+
+		if ($id) {
+			$venda = $this->m_venda->get($id);
+
+			if ($venda->num_rows() > 0) {
+				$variaveis['id'] = $venda->row()->id;
+				$variaveis['cliente_id'] = $venda->row()->cliente_id;
+				$variaveis['nome_cliente'] = $this->m_cliente->get($venda->row()->cliente_id)->row()->nome;
+				$variaveis['produto_id'] = $venda->row()->produto_id;
+				$variaveis['descricao_produto'] = $this->m_produto->get($venda->row()->produto_id)->row()->descricao;
+				$variaveis['forma_pagamento'] = $venda->row()->forma_pagamento;
+				$variaveis['quantidade'] = $venda->row()->quantidade;
+				$variaveis['preco'] = $venda->row()->valor_total / $venda->row()->quantidade;
+				$variaveis['valor_total'] = $venda->row()->valor_total;
+				$variaveis['usuario_id'] = $venda->row()->usuario_id;
+
+				$data['content'] = $this->load->view('venda_cadastro', $variaveis, TRUE);
+			} else {
+				$variaveis['mensagem'] = "Registro não encontrado.";
+				$this->load->view('errors/html/v_erro', $variaveis);
+			}
+
+		} else {
+			$data['content'] = $this->load->view('venda_cadastro', '', TRUE);
+		}
+		$this->load->view('template', $data);
+	}
+
 	function cadastro()
 	{
 		$variaveis['usuario_id'] = $this->session->userdata('usuario_id');
