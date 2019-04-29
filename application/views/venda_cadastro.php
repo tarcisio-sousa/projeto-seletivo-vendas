@@ -28,7 +28,7 @@
 						<div class="col-sm-3">
 							<label for="cliente"> Cliente </label>
 							<div class="input-group">
-								<input type="text" name="cliente" id="cliente" class="form-control" autofocus="true" />
+								<input type="text" name="cliente" value="<?= set_value('cliente_id') ? : (isset($cliente_id) ? $cliente_id : ''); ?>" id="cliente" class="form-control" autofocus="true" />
 								<div class="input-group-append">
 									<a class="btn btn-outline-secondary modalCliente" href="#" data-toggle="modal" data-target="#clienteModal">
 									  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-0" role="img" viewBox="0 0 24 24" focusable="false"><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
@@ -38,7 +38,7 @@
 						</div>
 						<div class="col-sm-9">
 							<label for="cliente"> Nome Cliente </label>
-							<input type="text" name="nome_cliente" id="nome_cliente" class="form-control" />
+							<input type="text" name="nome_cliente" value="<?= set_value('nome_cliente') ? : (isset($nome_cliente) ? $nome_cliente : ''); ?>" id="nome_cliente" class="form-control" />
 						</div>
 						<div><?php echo form_error('cliente') ?  : ''; ?></div>
 					</div>
@@ -50,7 +50,7 @@
 						<div class="col-sm-3">
 								<label for="produto"> Produto </label>
 								<div class="input-group">
-									<input type="text" name="produto" id="produto" class="form-control" />
+									<input type="text" name="produto" value="<?= set_value('produto_id') ? : (isset($produto_id) ? $produto_id : ''); ?>" id="produto" class="form-control" />
 									<div class="input-group-append">
 										<a class="btn btn-outline-secondary modalProduto" href="#" data-toggle="modal" data-target="#produtoModal">
 										  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-0" role="img" viewBox="0 0 24 24" focusable="false"><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
@@ -60,7 +60,7 @@
 						</div>
 						<div class="col-sm-9">
 							<label for="produto"> Descrição Produto </label>
-							<input type="text" name="descricao_produto" id="descricao_produto" class="form-control" />
+							<input type="text" name="descricao_produto" value="<?= set_value('descricao_produto') ? : (isset($descricao_produto) ? $descricao_produto : ''); ?>" id="descricao_produto" class="form-control" />
 						</div>
 					</div>
 					<div><?php echo form_error('produto') ?  : ''; ?></div>
@@ -72,7 +72,7 @@
 							<label for="forma_pagamento"> Pagamento </label>
 							<select class="form-control custom-select d-block w-100" id="forma_pagamento">
 							<?php foreach($formas_pagamento as $fpg): ?>
-								<option value="<?= $fpg?>"><?= $fpg?></option>
+								<option value="<?= $fpg?>" <?= (isset($forma_pagamento) && $forma_pagamento == $fpg ? "selected=selected" : "")?>><?= $fpg?></option>
 							<?php endforeach; ?>
 							</select>
 							<div><?php echo form_error('forma_pagamento') ?  : ''; ?></div>
@@ -105,7 +105,7 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
-						<input type='hidden' name="id" value="<?= set_value('id') ? : (isset($id) ? $id : ''); ?>">
+						<input type='hidden' name="id" id="id" value="<?= set_value('id') ? : (isset($id) ? $id : ''); ?>">
 						<input type='hidden' name="usuario" id="usuario" value="<?= $usuario_id ?>">
 					</div>
 					<div class="col-sm-12 text-right">
@@ -319,6 +319,7 @@ $(document).ready(function(){
 
 		$.post("<?= base_url(); ?>venda/form",
 			{
+				id: $("#id").val(),
 				cliente: $("#cliente").val(),
 				produto: $("#produto").val(),
 				forma_pagamento: $("#forma_pagamento").val(),
@@ -330,6 +331,7 @@ $(document).ready(function(){
 				$(".alert").show(0, "swing", function(){
 					$(this).text(data["validate"]);
 					if(!data['error']){
+						$("#id").val("");
 						$("#produto").val("");
 						$("#descricao_produto").val("");
 						$("#cliente").val("");
