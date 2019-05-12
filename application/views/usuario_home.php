@@ -38,6 +38,7 @@
 						<td> <?= $usuario->matricula ?> </td>
 						<td> <?= $usuario->status ?> </td>
 						<td class="text-right"> 
+							<?= anchor("usuario/alterar/senha/$usuario->id", 'Editar senha', array('class' => 'btn btn-warning btn-sm')); ?> 
 							<?= anchor("usuario/edita/$usuario->id", 'Editar', array('class' => 'btn btn-primary btn-sm')); ?> 
 							<?= anchor("usuario/remove/$usuario->id", 'Excluir', array('class' => 'btn btn-danger btn-sm')); ?></td>
 					</tr>
