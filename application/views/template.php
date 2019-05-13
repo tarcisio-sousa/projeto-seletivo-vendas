@@ -21,6 +21,8 @@
 		<div class="container">
 			<?= $content ?>
 		</div>
+		<script src="<?= base_url(); ?>assets/js/angular.js"></script>
+		<script src="<?= base_url(); ?>assets/js/angular-resource.js"></script>
 	</body>
 	
 </html>
