@@ -1,10 +1,10 @@
 
-<div class="container-fluid">
+<div class="col-sm-9">
 	<div class="row">
 		<div class="col-md-12">
-			<h3 class="text-left">
+			<!-- <h3 class="text-left">
 				Pedido de Venda
-			</h3>
+			</h3> -->
 
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
@@ -16,9 +16,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-3">
-		</div>
-		<div class="col-md-6">
+		<div class="col-md-8 mx-auto">
 		<div class="alert validate mt-0 pt-1 pb-1" style="display: none;" role="alert"></div>
 			<form onsubmit="return(false);" role="form" id="formVenda">
 			<? // form_open('venda/salvar') ?>

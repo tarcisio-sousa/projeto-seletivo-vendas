@@ -1,10 +1,10 @@
 
-<div class="container-fluid">
-	<div class="row">
+<div class="col-sm-9">
+	<!-- <div class="row">
 		<div class="col-md-12">
 			<h3 class="text-left">Bem vindo!!!</h3>
 		</div>
-	</div>
+	</div> -->
 
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
@@ -12,15 +12,15 @@
 		</ol>
 	</nav>
 
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-md-3">
 			<ul class="nav flex-column nav-pills">
 				<li class="nav-item">
-					<!-- <a class="nav-link active" href="#">Home</a> -->
+					<!-- <a class="nav-link active" href="#">Home</a> --
 					<?= anchor('/', 'Home', array('class' => 'nav-link active')); ?>
 				</li>
 				<li class="nav-item">
-					<!-- <a class="nav-link" href="#">Usuários</a> -->
+					<!-- <a class="nav-link" href="#">Usuários</a> --
 					<?= anchor('usuario', 'Usuários', array('class' => 'nav-link')); ?>
 				</li>
 				<li class="nav-item">
@@ -37,5 +37,5 @@
 				</li>
 			</ul>
 		</div>
-	</div>
+	</div> -->
 </div>

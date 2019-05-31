@@ -1,9 +1,9 @@
-<div class="container-fluid">
-	<div class="row text-left">
+<div class="col-sm-9">
+	<!-- <div class="row text-left">
 		<div class="col-sm-12">
 			<h3>Lista de Usuários</h3>
 		</div>
-	</div>
+	</div> -->
 
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
@@ -12,10 +12,10 @@
 		</ol>
 	</nav>
 
-	<div class="row text-left">
+	<div class="row text-left"><!-- 
 		<div class="col-sm-12 mb-2">
-			<?= anchor('usuario/cadastro', 'Novo Cadastro', array('class' => 'btn btn-success btn-sm')); ?>
-		</div>
+			<?= anchor('usuario/cadastro', 'NEW', array('class' => 'btn btn-success btn-sm')); ?>
+		</div> -->
 	</div>
 
 	<div class="row">
@@ -27,7 +27,7 @@
 						<th> Nome </th>
 						<th> Matrícula </th>
 						<th> Status </th>
-						<th>  </th>
+						<th> <?= anchor('usuario/cadastro', 'NEW', array('class' => 'btn btn-success btn-sm float-right')); ?> </th>
 					</tr>
 				</thead>
 				<tbody>
@@ -38,9 +38,12 @@
 						<td> <?= $usuario->matricula ?> </td>
 						<td> <?= $usuario->status ?> </td>
 						<td class="text-right"> 
-							<?= anchor("usuario/alterar/senha/$usuario->id", 'Editar senha', array('class' => 'btn btn-warning btn-sm')); ?> 
-							<?= anchor("usuario/edita/$usuario->id", 'Editar', array('class' => 'btn btn-primary btn-sm')); ?> 
-							<?= anchor("usuario/remove/$usuario->id", 'Excluir', array('class' => 'btn btn-danger btn-sm')); ?></td>
+							<div class="btn-group">
+							<?= anchor("usuario/alterar/senha/$usuario->id", '<i class="fas fa-key"></i>', array('class' => 'btn btn-outline-info btn-sm')); ?> 
+							<?= anchor("usuario/edita/$usuario->id", '<i class="fas fa-edit"></i>', array('class' => 'btn btn-outline-info btn-sm')); ?> 
+							<?= anchor("usuario/remove/$usuario->id", '<i class="fas fa-eraser"></i>', array('class' => 'btn btn-outline-danger btn-sm')); ?>
+							</div>
+						</td>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>
