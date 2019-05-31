@@ -111,6 +111,11 @@ class Usuario extends MY_Controller
 			// $this->load->view('v_sucesso', $variaveis);
 		}
 	}
+
+	public function getUsuarios() {
+		header('Content-Type: application/json');
+		echo json_encode($this->m_usuario->get()->result());
+	}
 	/**
 	 * public function superuser()
 	 * {

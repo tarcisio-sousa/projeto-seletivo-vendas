@@ -8,12 +8,12 @@
 		padding: 0;
 	}
 </style>
-<div class="container-fluid">
+<div class="col-sm-9">
 	<div class="row">
 		<div class="col-md-12">
-			<h3 class="text-left">
+			<!-- <h3 class="text-left">
 				Alterar senha
-			</h3>
+			</h3> -->
 
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
@@ -25,10 +25,10 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-4">
+		<!-- <div class="col-md-3">
 			<?= isset($mensagem) ? $mensagem : "" ?>
-		</div>
-		<div class="col-md-4">
+		</div> -->
+		<div class="col-sm-5 mx-auto">
 			<!-- <form role="form"> -->
 			<?= form_open("usuario/alterar/senha/$id") ?>
 				<div class="row">

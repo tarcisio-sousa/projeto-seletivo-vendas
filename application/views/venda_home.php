@@ -1,9 +1,9 @@
-<div class="container-fluid">
-	<div class="row text-left">
+<div class="col-sm-9">
+	<!-- <div class="row text-left">
 		<div class="col-sm-12">
 			<h3>Lista de Vendas</h3>
 		</div>
-	</div>
+	</div> -->
 
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
@@ -12,11 +12,11 @@
 		</ol>
 	</nav>
 
-	<div class="row text-left">
+	<!-- <div class="row text-left">
 		<div class="col-sm-12 mb-2">
 			<?= anchor('venda/cadastro', 'Pedido de Venda', array('class' => 'btn btn-success btn-sm')); ?>
 		</div>
-	</div>
+	</div> -->
 
 	<div class="row">
 		<div class="col-sm-12">
@@ -26,7 +26,7 @@
 						<th> # </th>
 						<th> Forma de Pagamento </th>
 						<th> Valor Total </th>
-						<th>  </th>
+						<th> <?= anchor('venda/cadastro', 'NEW', array('class' => 'btn btn-success btn-sm float-right')); ?> </th>
 					</tr>
 				</thead>
 				<tbody>
@@ -36,8 +36,11 @@
 						<td class="text-center"> <?= $venda->forma_pagamento ?> </td>
 						<td class="text-right"> <?= $venda->valor_total ?> </td>
 						<td class="text-right"> 
-							<?= anchor("venda/edita/$venda->id", 'Editar', array('class' => 'btn btn-primary btn-sm')); ?> 
-							<?= anchor("venda/remove/$venda->id", 'Excluir', array('class' => 'btn btn-danger btn-sm')); ?></td>
+							<div class="btn-group">
+							<?= anchor("venda/edita/$venda->id", '<i class="fas fa-edit"></i>', array('class' => 'btn btn-outline-info btn-sm')); ?> 
+							<?= anchor("venda/remove/$venda->id", '<i class="fas fa-eraser"></i>', array('class' => 'btn btn-outline-danger btn-sm')); ?>
+							</div>
+						</td>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>
