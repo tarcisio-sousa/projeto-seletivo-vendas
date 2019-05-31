@@ -87,20 +87,15 @@ class Usuario extends MY_Controller
 		$variaveis['id'] = $id;
 		$this->form_validation->set_message('matches', 'A senha não corresponde.');
 		$this->form_validation->set_rules($regras);
-		// $this->form_validation->run();
+		
 		if ($this->form_validation->run() && $id){
 			$usuario = $this->m_usuario->get($id);
 			if($usuario->num_rows() == 1) {
-				// $variaveis['id'] = $usuario->row()->id;
-				// $variaveis['senha'] = $usuario->row()->senha;
 				$nova_senha = $this->input->post('nsenha');
 				$dados = array('senha' => password_hash($nova_senha, PASSWORD_DEFAULT));
 				if($this->m_usuario->persiste($dados, $id)){
 					$variaveis['mensagem'] = "Senha alterada com sucesso!";
 				}
-				// if($this->form_validation->set_rules($regras) == FALSE){
-
-				// }
 			} else {
 				$variaveis['mensagem'] = "Usuário não encontrado!";
 			}
