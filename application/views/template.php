@@ -36,10 +36,10 @@
 
 			<div class="row">
 				<div class="col-md-3">
-					<ul class="nav flex-column nav-pills">
+					<ul class="nav flex-column nav-pills text-left">
 						<li class="nav-item">
 							<!-- <a class="nav-link active" href="#">Home</a> -->
-							<?= anchor('/', 'Home', array('class' => 'nav-link active')); ?>
+							<?= anchor('/', 'Home', array('class' => 'nav-link')); ?>
 						</li>
 						<li class="nav-item">
 							<!-- <a class="nav-link" href="#">Usuários</a> -->
